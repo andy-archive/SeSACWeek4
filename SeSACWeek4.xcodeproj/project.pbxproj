@@ -13,6 +13,9 @@
 		385A815A2A80968F00A8D72C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385A81582A80968F00A8D72C /* Main.storyboard */; };
 		385A815C2A80969000A8D72C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 385A815B2A80969000A8D72C /* Assets.xcassets */; };
 		385A815F2A80969000A8D72C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385A815D2A80969000A8D72C /* LaunchScreen.storyboard */; };
+		385A81682A8096AE00A8D72C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 385A81672A8096AE00A8D72C /* Alamofire */; };
+		385A816B2A8096B900A8D72C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 385A816A2A8096B900A8D72C /* Kingfisher */; };
+		385A816E2A8096C500A8D72C /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 385A816D2A8096C500A8D72C /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385A816E2A8096C500A8D72C /* SwiftyJSON in Frameworks */,
+				385A816B2A8096B900A8D72C /* Kingfisher in Frameworks */,
+				385A81682A8096AE00A8D72C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +62,39 @@
 		385A81512A80968F00A8D72C /* SeSACWeek4 */ = {
 			isa = PBXGroup;
 			children = (
-				385A81522A80968F00A8D72C /* AppDelegate.swift */,
-				385A81542A80968F00A8D72C /* SceneDelegate.swift */,
-				385A81562A80968F00A8D72C /* ViewController.swift */,
-				385A81582A80968F00A8D72C /* Main.storyboard */,
+				385A81702A8096E000A8D72C /* Application */,
+				385A816F2A8096DA00A8D72C /* View */,
+				385A81712A8096E600A8D72C /* Storyboard */,
 				385A815B2A80969000A8D72C /* Assets.xcassets */,
-				385A815D2A80969000A8D72C /* LaunchScreen.storyboard */,
 				385A81602A80969000A8D72C /* Info.plist */,
 			);
 			path = SeSACWeek4;
+			sourceTree = "<group>";
+		};
+		385A816F2A8096DA00A8D72C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				385A81562A80968F00A8D72C /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		385A81702A8096E000A8D72C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				385A81522A80968F00A8D72C /* AppDelegate.swift */,
+				385A81542A80968F00A8D72C /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		385A81712A8096E600A8D72C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				385A81582A80968F00A8D72C /* Main.storyboard */,
+				385A815D2A80969000A8D72C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +113,11 @@
 			dependencies = (
 			);
 			name = SeSACWeek4;
+			packageProductDependencies = (
+				385A81672A8096AE00A8D72C /* Alamofire */,
+				385A816A2A8096B900A8D72C /* Kingfisher */,
+				385A816D2A8096C500A8D72C /* SwiftyJSON */,
+			);
 			productName = SeSACWeek4;
 			productReference = 385A814F2A80968F00A8D72C /* SeSACWeek4.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +146,11 @@
 				Base,
 			);
 			mainGroup = 385A81462A80968F00A8D72C;
+			packageReferences = (
+				385A81662A8096AE00A8D72C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				385A81692A8096B900A8D72C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				385A816C2A8096C500A8D72C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 385A81502A80968F00A8D72C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -293,8 +333,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +342,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.andyarchive.SeSACWeek4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,8 +364,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +373,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.andyarchive.SeSACWeek4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +404,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		385A81662A8096AE00A8D72C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		385A81692A8096B900A8D72C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		385A816C2A8096C500A8D72C /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		385A81672A8096AE00A8D72C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 385A81662A8096AE00A8D72C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		385A816A2A8096B900A8D72C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 385A81692A8096B900A8D72C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		385A816D2A8096C500A8D72C /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 385A816C2A8096C500A8D72C /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 385A81472A80968F00A8D72C /* Project object */;
 }
