@@ -25,7 +25,10 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
+//                print("JSON: \(json)")
+                
+                let name = json["boxOfficeResult"]["dailyBoxOfficeList"][0]["movieNm"].stringValue
+                print(name, "==============================================")
             case .failure(let error):
                 print(error)
             }
