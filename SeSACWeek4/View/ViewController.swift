@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     func callRequest() {
         
-        let url = ""
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=20120101"
         
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
