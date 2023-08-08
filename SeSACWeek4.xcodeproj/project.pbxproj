@@ -19,6 +19,8 @@
 		385A81732A809BAD00A8D72C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 385A81722A809BAD00A8D72C /* .gitignore */; };
 		385A81752A809C5600A8D72C /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81742A809C5600A8D72C /* TranslationViewController.swift */; };
 		385A81792A809C9000A8D72C /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81782A809C9000A8D72C /* APIKey.swift */; };
+		385A818B2A81C4C900A8D72C /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A818A2A81C4C900A8D72C /* WeatherViewController.swift */; };
+		385A818D2A81E79400A8D72C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A818C2A81E79400A8D72C /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		385A81722A809BAD00A8D72C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		385A81742A809C5600A8D72C /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		385A81782A809C9000A8D72C /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		385A818A2A81C4C900A8D72C /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		385A818C2A81E79400A8D72C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 			children = (
 				385A81562A80968F00A8D72C /* ViewController.swift */,
 				385A81742A809C5600A8D72C /* TranslationViewController.swift */,
+				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
+				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +195,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				385A81752A809C5600A8D72C /* TranslationViewController.swift in Sources */,
+				385A818D2A81E79400A8D72C /* VideoViewController.swift in Sources */,
+				385A818B2A81C4C900A8D72C /* WeatherViewController.swift in Sources */,
 				385A81572A80968F00A8D72C /* ViewController.swift in Sources */,
 				385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */,
 				385A81552A80968F00A8D72C /* SceneDelegate.swift in Sources */,
