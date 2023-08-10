@@ -17,7 +17,7 @@ struct Video {
     let playTime: Int
     let thumbnail: String
     let title: String
-    let url: String
+    let imageURL: String
     
     var contents: String {
         return "\(author) | \(playTime)회\n\(date)"
@@ -45,23 +45,26 @@ class VideoViewController: UIViewController {
     }
     
     func callRequest(query: String, page: Int) {
-        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        guard let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=15&page=\(page)"
         let header: HTTPHeaders = ["Authorization": APIKey.kakaoAPI]
         
         print(url)
         
-        AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseJSON { response in
+        AF.request(
+            url,
+            method: .get,
+            headers: header
+        ).validate(statusCode: 200...500).responseJSON{ response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+//                print("JSON: \(json)")
                 
-                print("====================\n", "JSON: \(json)")
-                print("STATUS CODE: \(response.response?.statusCode ?? -1)\n") // 상태코드에 대한 것을 출력
                 let statusCode = response.response?.statusCode ?? 500 // 옵셔널 체이닝
+                print("STATUS CODE: \(statusCode)\n") // 상태코드에 대한 것을 출력
                 
                 if statusCode == 200 {
-                    
                     self.isEnd = json["meta"]["is_end"].boolValue
                     
                     for item in json["documents"].arrayValue {
@@ -72,15 +75,22 @@ class VideoViewController: UIViewController {
                         let title = item["title"].stringValue
                         let url = item["url"].stringValue
                         
-                        let data = Video(author: author, date: date, playTime: playTime, thumbnail: thumbnail, title: title, url: url)
+                        let data = Video(
+                            author: author,
+                            date: date,
+                            playTime: playTime,
+                            thumbnail: thumbnail,
+                            title: title,
+                            imageURL: url
+                        )
                         
                         self.videoList.append(data)
+                        self.videoTableView.reloadData()
                     }
                 } else {
-                    print("CALL REQUEST ERROR")
+                    print("REQUEST ERROR: \(statusCode)")
                 }
-//                print("====================\n", self.videoList)
-                
+                print(self.videoList)
             case .failure(let error):
                 print(error)
             }
@@ -90,7 +100,6 @@ class VideoViewController: UIViewController {
 
 extension VideoViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         page = 1
         videoList.removeAll()
         
@@ -111,11 +120,13 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier) as? VideoTableViewCell else { return UITableViewCell() }
-
-        cell.titleLabel.text = videoList[indexPath.row].title
-        cell.contentLabel.text = videoList[indexPath.row].contents
         
-        guard let url = URL(string: videoList[indexPath.row].url) else { return UITableViewCell() }
+        let row = videoList[indexPath.row]
+
+        cell.titleLabel.text = row.title
+        cell.contentLabel.text = row.contents
+        
+        guard let url = URL(string: row.thumbnail) else { return UITableViewCell() }
         cell.thumbnailImageView.kf.setImage(with: url)
         
         return cell
