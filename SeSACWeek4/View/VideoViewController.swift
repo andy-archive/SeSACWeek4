@@ -10,6 +10,7 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
+// MVC에서 M(Model)에 해당
 struct Video {
     let author: String
     let date: String
