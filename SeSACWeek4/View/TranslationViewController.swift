@@ -16,20 +16,32 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     
     var langCode = "en"
+    let placeholderText = "번역하고 싶은 문장을 입력하세요"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        originalTextView.text = "원하는 언어로 번역하고 싶은 문장을 입력하세요"
-        translatedTextView.text = ""
-        translatedTextView.isEditable = false
+        uploadView()
     }
     
     @IBAction func translateButtonClicked(_ sender: UIButton) {
-//        print("BEFORE: ", self.langCode)
         getPapagoLanguageCode(query: originalTextView.text)
-//        print("AFTER: ", self.langCode)
         getPapagoTranslationRequest(source: self.langCode)
+        title = "\(langCode) → en"
+    }
+    
+    func uploadView() {
+        title = "\(langCode) → en"
+        
+        originalTextView.delegate = self
+        originalTextView.text = placeholderText
+        originalTextView.backgroundColor = .systemGreen
+        
+        translatedTextView.text = ""
+        translatedTextView.backgroundColor = .systemGreen
+        translatedTextView.isEditable = false
+        
+        translateButton.setTitle("번역하기", for: .normal)
     }
     
     func getPapagoLanguageCode(query: String) {
@@ -50,15 +62,12 @@ class TranslationViewController: UIViewController {
             case .success(let value):
                 let json = JSON(value)
                 let statusCode = response.response?.statusCode ?? 500
-                print("JSON: \(json)")
-                print("STATUS CODE: \(statusCode)")
                 
                 if statusCode == 200 {
                     self.langCode = json["langCode"].stringValue
                 } else {
                     print("REQUEST ERROR: \(statusCode)")
                 }
-
             case .failure(let error):
                 print(error)
             }
@@ -87,14 +96,30 @@ class TranslationViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
-                
                 let data = json["message"]["result"]["translatedText"].stringValue
-                self.translatedTextView.text = data
                 
+                self.translatedTextView.text = data
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+}
+
+// MARK: originalTextView - UITextFieldDelegate
+
+extension TranslationViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == placeholderText  {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeholderText
+            textView.textColor = .lightGray
         }
     }
 }
