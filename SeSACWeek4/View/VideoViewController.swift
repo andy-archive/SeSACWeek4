@@ -48,32 +48,35 @@ class VideoViewController: UIViewController {
         guard let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=15&page=\(page)"
         let header: HTTPHeaders = ["Authorization": APIKey.kakaoAPI]
-        
-        print(url)
+//        print(url)
         
         AF.request(
             url,
             method: .get,
             headers: header
-        ).validate(statusCode: 200...500).responseJSON{ response in
+        ).validate(statusCode:
+                    200...500
+        ).responseJSON{ response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
 //                print("JSON: \(json)")
                 
                 let statusCode = response.response?.statusCode ?? 500 // 옵셔널 체이닝
-                print("STATUS CODE: \(statusCode)\n") // 상태코드에 대한 것을 출력
+//                print("STATUS CODE: \(statusCode)\n") // 상태코드에 대한 것을 출력
                 
                 if statusCode == 200 {
                     self.isEnd = json["meta"]["is_end"].boolValue
                     
                     for item in json["documents"].arrayValue {
                         let author = item["author"].stringValue
-                        let date = item["datetime"].stringValue
+                        let dateString = item["datetime"].stringValue
                         let playTime = item["play_time"].intValue
                         let thumbnail = item["thumbnail"].stringValue
                         let title = item["title"].stringValue
                         let url = item["url"].stringValue
+                        
+                        let date = String(dateString[dateString.startIndex...dateString.index(dateString.startIndex, offsetBy: 9)])
                         
                         let data = Video(
                             author: author,
@@ -90,7 +93,6 @@ class VideoViewController: UIViewController {
                 } else {
                     print("REQUEST ERROR: \(statusCode)")
                 }
-                print(self.videoList)
             case .failure(let error):
                 print(error)
             }

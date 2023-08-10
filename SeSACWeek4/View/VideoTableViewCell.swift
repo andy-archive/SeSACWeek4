@@ -18,11 +18,16 @@ class VideoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        configureCell()
+    }
+    
+    func configureCell() {
         titleLabel.font = .boldSystemFont(ofSize: 15)
         titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .natural
         contentLabel.font = .systemFont(ofSize: 13)
         contentLabel.numberOfLines = 0
-        thumbnailImageView.contentMode = .scaleToFill
+        thumbnailImageView.contentMode = .scaleAspectFit
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
