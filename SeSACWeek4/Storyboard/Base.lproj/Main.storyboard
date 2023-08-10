@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kHG-Zs-9EA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -56,21 +56,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tca-QK-1nm">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dmn-zE-Lxm" secondAttribute="bottom" id="2Xl-Pg-G3K"/>
+                            <constraint firstItem="tca-QK-1nm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Dl-8T-jhK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k94-N5-b99" secondAttribute="trailing" id="7iP-Ul-W6Y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dmn-zE-Lxm" secondAttribute="trailing" id="9Kx-3n-d0B"/>
                             <constraint firstItem="k94-N5-b99" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bwc-Ne-kIG"/>
                             <constraint firstItem="k94-N5-b99" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GWs-Oq-rCP"/>
+                            <constraint firstItem="tca-QK-1nm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eXm-Yt-ujc"/>
                             <constraint firstItem="Dmn-zE-Lxm" firstAttribute="top" secondItem="k94-N5-b99" secondAttribute="bottom" id="gPx-uM-mn5"/>
                             <constraint firstItem="Dmn-zE-Lxm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tp7-o1-yY1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="tca-QK-1nm" id="Z52-2H-TDg"/>
                         <outlet property="movieTableView" destination="Dmn-zE-Lxm" id="FaE-k2-IJn"/>
+                        <outlet property="searchBar" destination="k94-N5-b99" id="PDR-xA-gst"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

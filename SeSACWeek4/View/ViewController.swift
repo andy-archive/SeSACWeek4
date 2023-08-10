@@ -16,7 +16,9 @@ struct Movie {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var movieTableView: UITableView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     var movieList = [Movie]()
     
@@ -26,13 +28,15 @@ class ViewController: UIViewController {
         movieTableView.rowHeight = 60
         movieTableView.delegate = self
         movieTableView.dataSource = self
-        
-        callRequest()
+        indicatorView.isHidden = true
     }
     
-    func callRequest() {
+    func callRequest(date: String) {
+       
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false // 네트워크 통신 시 드러나기
         
-        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=20120101"
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=\(date)"
         
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
@@ -40,9 +44,9 @@ class ViewController: UIViewController {
                 let json = JSON(value)
                 print("JSON: \(json)")
                 
-                let name1 = json["boxOfficeResult"]["dailyBoxOfficeList"][0]["movieNm"].stringValue
-                let name2 = json["boxOfficeResult"]["dailyBoxOfficeList"][1]["movieNm"].stringValue
-                let name3 = json["boxOfficeResult"]["dailyBoxOfficeList"][2]["movieNm"].stringValue
+//                let name1 = json["boxOfficeResult"]["dailyBoxOfficeList"][0]["movieNm"].stringValue
+//                let name2 = json["boxOfficeResult"]["dailyBoxOfficeList"][1]["movieNm"].stringValue
+//                let name3 = json["boxOfficeResult"]["dailyBoxOfficeList"][2]["movieNm"].stringValue
 //                print(name1, name2, name3, "====================", separator: "\n")
                 
                 // 1. 일일이 넣기 with using append(contentsOf: )
@@ -58,12 +62,21 @@ class ViewController: UIViewController {
                     self.movieList.append(data)
                 }
                 
+                self.indicatorView.stopAnimating() // 이걸 해주지 않으면 계속 애니메이션이 뒤에서 돌아가고 있다
+                self.indicatorView.isHidden = true // 갱신 시 보여주기
                 self.movieTableView.reloadData()
                 
             case .failure(let error):
                 print(error)
             }
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        callRequest(date: searchBar.text ?? "20230101")
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3844C4182A84632100443215 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C4172A84632100443215 /* VideoTableViewCell.swift */; };
 		385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81522A80968F00A8D72C /* AppDelegate.swift */; };
 		385A81552A80968F00A8D72C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81542A80968F00A8D72C /* SceneDelegate.swift */; };
 		385A81572A80968F00A8D72C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81562A80968F00A8D72C /* ViewController.swift */; };
@@ -21,10 +22,10 @@
 		385A81792A809C9000A8D72C /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81782A809C9000A8D72C /* APIKey.swift */; };
 		385A818B2A81C4C900A8D72C /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A818A2A81C4C900A8D72C /* WeatherViewController.swift */; };
 		385A818D2A81E79400A8D72C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A818C2A81E79400A8D72C /* VideoViewController.swift */; };
-		385A81B22A83230C00A8D72C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A81B12A83230C00A8D72C /* VideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3844C4172A84632100443215 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		385A814F2A80968F00A8D72C /* SeSACWeek4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACWeek4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		385A81522A80968F00A8D72C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		385A81542A80968F00A8D72C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +39,6 @@
 		385A81782A809C9000A8D72C /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		385A818A2A81C4C900A8D72C /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		385A818C2A81E79400A8D72C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
-		385A81B12A83230C00A8D72C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 				385A81742A809C5600A8D72C /* TranslationViewController.swift */,
 				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
 				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
-				385A81B12A83230C00A8D72C /* VideoTableViewCell.swift */,
+				3844C4172A84632100443215 /* VideoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 				385A818B2A81C4C900A8D72C /* WeatherViewController.swift in Sources */,
 				385A81572A80968F00A8D72C /* ViewController.swift in Sources */,
 				385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */,
-				385A81B22A83230C00A8D72C /* VideoTableViewCell.swift in Sources */,
+				3844C4182A84632100443215 /* VideoTableViewCell.swift in Sources */,
 				385A81552A80968F00A8D72C /* SceneDelegate.swift in Sources */,
 				385A81792A809C9000A8D72C /* APIKey.swift in Sources */,
 			);
