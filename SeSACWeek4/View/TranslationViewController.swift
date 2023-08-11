@@ -21,6 +21,12 @@ class TranslationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        originalTextView.text = UserDefaultsHelper.standard.nickname //
+        originalTextView.text = UserDefaults.standard.string(forKey: "nickname")
+        
+        UserDefaults.standard.set("andy", forKey: "nickname")
+        UserDefaultsHelper.standard.nickname = "칙촉"
+        
         uploadView()
     }
     

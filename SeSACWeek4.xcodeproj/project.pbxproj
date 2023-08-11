@@ -22,6 +22,8 @@
 		385A818D2A81E79400A8D72C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A818C2A81E79400A8D72C /* VideoViewController.swift */; };
 		38B800F22A84C14E0032C64C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */; };
 		38EAF3062A84768700A96C51 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAF3052A84768700A96C51 /* TranslationViewController.swift */; };
+		38F512C92A85BAA600389F6D /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512C82A85BAA600389F6D /* ReusableViewProtocol.swift */; };
+		38F512CB2A85BCFF00389F6D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		385A818C2A81E79400A8D72C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		38EAF3052A84768700A96C51 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		38F512C82A85BAA600389F6D /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableViewProtocol.swift; path = SeSACWeek4/ReusableViewProtocol.swift; sourceTree = SOURCE_ROOT; };
+		38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				385A815B2A80969000A8D72C /* Assets.xcassets */,
 				385A81722A809BAD00A8D72C /* .gitignore */,
 				385A81782A809C9000A8D72C /* APIKey.swift */,
+				38F512C82A85BAA600389F6D /* ReusableViewProtocol.swift */,
+				38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */,
 				385A81602A80969000A8D72C /* Info.plist */,
 			);
 			path = SeSACWeek4;
@@ -197,8 +203,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F512CB2A85BCFF00389F6D /* UserDefaultsHelper.swift in Sources */,
 				38EAF3062A84768700A96C51 /* TranslationViewController.swift in Sources */,
 				385A818D2A81E79400A8D72C /* VideoViewController.swift in Sources */,
+				38F512C92A85BAA600389F6D /* ReusableViewProtocol.swift in Sources */,
 				385A818B2A81C4C900A8D72C /* WeatherViewController.swift in Sources */,
 				385A81572A80968F00A8D72C /* ViewController.swift in Sources */,
 				385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */,
