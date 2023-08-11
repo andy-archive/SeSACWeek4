@@ -33,6 +33,11 @@ class TranslationViewController: UIViewController {
     @IBAction func translateButtonClicked(_ sender: UIButton) {
         getPapagoLanguageCode(query: originalTextView.text)
         getPapagoTranslationRequest(source: self.langCode)
+        
+//        TranslateAPIManager.shared.callRequest(text: originalTextView.text ?? "") { result in
+//            self.translatedTextView.text = result
+//        }
+        
         title = "\(langCode) → en"
     }
     

@@ -24,6 +24,10 @@
 		38EAF3062A84768700A96C51 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAF3052A84768700A96C51 /* TranslationViewController.swift */; };
 		38F512C92A85BAA600389F6D /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512C82A85BAA600389F6D /* ReusableViewProtocol.swift */; };
 		38F512CB2A85BCFF00389F6D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */; };
+		38F512CD2A85C51400389F6D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CC2A85C51400389F6D /* Endpoint.swift */; };
+		38F512CF2A85C5CA00389F6D /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CE2A85C5CA00389F6D /* URL+Extension.swift */; };
+		38F512D12A85C77C00389F6D /* KakaoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */; };
+		38F512D32A85E37300389F6D /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512D22A85E37300389F6D /* TranslateAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,10 @@
 		38EAF3052A84768700A96C51 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		38F512C82A85BAA600389F6D /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableViewProtocol.swift; path = SeSACWeek4/ReusableViewProtocol.swift; sourceTree = SOURCE_ROOT; };
 		38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		38F512CC2A85C51400389F6D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		38F512CE2A85C5CA00389F6D /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIManager.swift; sourceTree = "<group>"; };
+		38F512D22A85E37300389F6D /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +93,12 @@
 				385A81722A809BAD00A8D72C /* .gitignore */,
 				385A81782A809C9000A8D72C /* APIKey.swift */,
 				38F512C82A85BAA600389F6D /* ReusableViewProtocol.swift */,
+				38F512CC2A85C51400389F6D /* Endpoint.swift */,
+				38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */,
+				38F512CE2A85C5CA00389F6D /* URL+Extension.swift */,
 				38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */,
 				385A81602A80969000A8D72C /* Info.plist */,
+				38F512D22A85E37300389F6D /* TranslateAPIManager.swift */,
 			);
 			path = SeSACWeek4;
 			sourceTree = "<group>";
@@ -208,10 +220,14 @@
 				385A818D2A81E79400A8D72C /* VideoViewController.swift in Sources */,
 				38F512C92A85BAA600389F6D /* ReusableViewProtocol.swift in Sources */,
 				385A818B2A81C4C900A8D72C /* WeatherViewController.swift in Sources */,
+				38F512D32A85E37300389F6D /* TranslateAPIManager.swift in Sources */,
+				38F512D12A85C77C00389F6D /* KakaoAPIManager.swift in Sources */,
+				38F512CF2A85C5CA00389F6D /* URL+Extension.swift in Sources */,
 				385A81572A80968F00A8D72C /* ViewController.swift in Sources */,
 				385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */,
 				38B800F22A84C14E0032C64C /* VideoTableViewCell.swift in Sources */,
 				385A81552A80968F00A8D72C /* SceneDelegate.swift in Sources */,
+				38F512CD2A85C51400389F6D /* Endpoint.swift in Sources */,
 				385A81792A809C9000A8D72C /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
