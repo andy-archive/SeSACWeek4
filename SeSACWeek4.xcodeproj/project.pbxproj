@@ -28,6 +28,7 @@
 		38F512CF2A85C5CA00389F6D /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CE2A85C5CA00389F6D /* URL+Extension.swift */; };
 		38F512D12A85C77C00389F6D /* KakaoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */; };
 		38F512D32A85E37300389F6D /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512D22A85E37300389F6D /* TranslateAPIManager.swift */; };
+		38F512D52A85F9F200389F6D /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512D42A85F9F200389F6D /* AsyncViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		38F512CE2A85C5CA00389F6D /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIManager.swift; sourceTree = "<group>"; };
 		38F512D22A85E37300389F6D /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = "<group>"; };
+		38F512D42A85F9F200389F6D /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
 				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
 				38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */,
+				38F512D42A85F9F200389F6D /* AsyncViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				38F512D12A85C77C00389F6D /* KakaoAPIManager.swift in Sources */,
 				38F512CF2A85C5CA00389F6D /* URL+Extension.swift in Sources */,
 				385A81572A80968F00A8D72C /* ViewController.swift in Sources */,
+				38F512D52A85F9F200389F6D /* AsyncViewController.swift in Sources */,
 				385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */,
 				38B800F22A84C14E0032C64C /* VideoTableViewCell.swift in Sources */,
 				385A81552A80968F00A8D72C /* SceneDelegate.swift in Sources */,
