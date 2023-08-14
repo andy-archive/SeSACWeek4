@@ -14,6 +14,21 @@ struct Movie {
     var releasedDate: String
 }
 
+// JSON이 필요한 원리 
+//struct BoxOfficeResult: Decodable {
+//    let result: BoxOfficeSecond
+//}
+//
+//struct BoxOfficeSecond: Decodable {
+//    let boxOfficeType: String
+//    let dailyBoxOfficeList: [BoxOffice]
+//    let showRange: String
+//}
+//
+//struct BoxOffice: Decodable {
+//    
+//}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,6 +36,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     var movieList = [Movie]()
+    
+    //Codable
+    var result: BoxOffice?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +56,20 @@ class ViewController: UIViewController {
         
         let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=\(date)"
         
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
+        // https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#chained-response-handlers
+        AF.request(url, method: .get)
+            .validate()
+            .responseDecodable(of: BoxOffice.self) { response in
+//                print(response)
+                print(response.value)
+                self.result = response.value
+                self.movieTableView.reloadData()
+            }
+            
+//            .responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
 //                print("JSON: \(json)")
                 
 //                let name1 = json["boxOfficeResult"]["dailyBoxOfficeList"][0]["movieNm"].stringValue
@@ -53,42 +81,47 @@ class ViewController: UIViewController {
 //                self.movieList.append(contentsOf: [name1, name2, name3])
                 
                 // 2. for 문과 arrayValue를 이용해서 모든 정보 담기
-                for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
-                    let movieNm = item["movieNm"].stringValue
-                    let openDt = item["openDt"].stringValue
-                    
-                    let data = Movie(title: movieNm, releasedDate: openDt)
-                    
-                    self.movieList.append(data)
-                }
-                
-                self.indicatorView.stopAnimating() // 이걸 해주지 않으면 계속 애니메이션이 뒤에서 돌아가고 있다
-                self.indicatorView.isHidden = true // 갱신 시 보여주기
-                self.movieTableView.reloadData()
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+//                for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
+//                    let movieNm = item["movieNm"].stringValue
+//                    let openDt = item["openDt"].stringValue
+//
+//                    let data = Movie(title: movieNm, releasedDate: openDt)
+//
+//                    self.movieList.append(data)
+//                }
+//
+//                self.indicatorView.stopAnimating() // 이걸 해주지 않으면 계속 애니메이션이 뒤에서 돌아가고 있다
+//                self.indicatorView.isHidden = true // 갱신 시 보여주기
+//                self.movieTableView.reloadData()
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }
 
 extension ViewController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         callRequest(date: searchBar.text ?? "20230101")
     }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//
+//    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
+        guard let data = result?.boxOfficeResult.dailyBoxOfficeList.count else { return 0 }
+        return data //movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") else { return UITableViewCell() }
-        cell.textLabel?.text = movieList[indexPath.row].title
+        guard let data = result?.boxOfficeResult.dailyBoxOfficeList else { return UITableViewCell() }
+        
+        cell.textLabel?.text = data[indexPath.row].movieNm
         cell.detailTextLabel?.text = "FOR TEST"
         
         return cell
