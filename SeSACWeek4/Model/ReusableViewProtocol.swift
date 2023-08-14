@@ -11,7 +11,6 @@ import UIKit
 // 코드를 처음 보는 사람이 이해하기 쉽도록 적기 위함
 protocol ReusableViewProtocol { // 주로 명시적으로 "Protocol"이라는 명칭을 뒤에 쓴다
     static var identifier: String { get }
-    
 }
 
 extension UIViewController: ReusableViewProtocol {
