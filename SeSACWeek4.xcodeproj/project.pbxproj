@@ -23,6 +23,7 @@
 		3878C8B72A8A02590068543B /* BoxOfficeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878C8B62A8A02590068543B /* BoxOfficeData.swift */; };
 		3878C8BA2A8A55050068543B /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878C8B92A8A55050068543B /* ReusableViewProtocol.swift */; };
 		38B800F22A84C14E0032C64C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */; };
+		38C6C39A2A8E17C300E298FD /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6C3992A8E17C300E298FD /* Video.swift */; };
 		38EAF3062A84768700A96C51 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAF3052A84768700A96C51 /* TranslationViewController.swift */; };
 		38F512CB2A85BCFF00389F6D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */; };
 		38F512CD2A85C51400389F6D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F512CC2A85C51400389F6D /* Endpoint.swift */; };
@@ -48,6 +49,7 @@
 		3878C8B62A8A02590068543B /* BoxOfficeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeData.swift; sourceTree = "<group>"; };
 		3878C8B92A8A55050068543B /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		38C6C3992A8E17C300E298FD /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		38EAF3052A84768700A96C51 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		38F512CC2A85C51400389F6D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -90,13 +92,15 @@
 		385A81512A80968F00A8D72C /* SeSACWeek4 */ = {
 			isa = PBXGroup;
 			children = (
-				385A81702A8096E000A8D72C /* Application */,
-				3878C8B82A8A53EE0068543B /* Model */,
-				385A81712A8096E600A8D72C /* Storyboard */,
-				385A816F2A8096DA00A8D72C /* View */,
-				385A815B2A80969000A8D72C /* Assets.xcassets */,
+				38C6C39D2A8E29C200E298FD /* Extension */,
 				385A81722A809BAD00A8D72C /* .gitignore */,
 				385A81602A80969000A8D72C /* Info.plist */,
+				385A815B2A80969000A8D72C /* Assets.xcassets */,
+				385A81702A8096E000A8D72C /* Application */,
+				3878C8B82A8A53EE0068543B /* Model */,
+				38C6C3982A8E177A00E298FD /* Network */,
+				385A81712A8096E600A8D72C /* Storyboard */,
+				385A816F2A8096DA00A8D72C /* View */,
 			);
 			path = SeSACWeek4;
 			sourceTree = "<group>";
@@ -104,12 +108,11 @@
 		385A816F2A8096DA00A8D72C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				385A81562A80968F00A8D72C /* ViewController.swift */,
-				38EAF3052A84768700A96C51 /* TranslationViewController.swift */,
-				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
-				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
-				38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */,
 				38F512D42A85F9F200389F6D /* AsyncViewController.swift */,
+				385A81562A80968F00A8D72C /* ViewController.swift */,
+				38C6C39B2A8E17ED00E298FD /* TranslationView */,
+				38F4AB9C2A8E13C30040D798 /* VideoVIew */,
+				38C6C39C2A8E17F600E298FD /* WeatherView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,16 +138,56 @@
 		3878C8B82A8A53EE0068543B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				385A81782A809C9000A8D72C /* APIKey.swift */,
 				3878C8B62A8A02590068543B /* BoxOfficeData.swift */,
 				38F512CC2A85C51400389F6D /* Endpoint.swift */,
-				38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */,
-				38F512CE2A85C5CA00389F6D /* URL+Extension.swift */,
 				38F512CA2A85BCFF00389F6D /* UserDefaultsHelper.swift */,
-				38F512D22A85E37300389F6D /* TranslateAPIManager.swift */,
 				3878C8B92A8A55050068543B /* ReusableViewProtocol.swift */,
+				38C6C3992A8E17C300E298FD /* Video.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		38C6C3982A8E177A00E298FD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				385A81782A809C9000A8D72C /* APIKey.swift */,
+				38F512D02A85C77C00389F6D /* KakaoAPIManager.swift */,
+				38F512D22A85E37300389F6D /* TranslateAPIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		38C6C39B2A8E17ED00E298FD /* TranslationView */ = {
+			isa = PBXGroup;
+			children = (
+				38EAF3052A84768700A96C51 /* TranslationViewController.swift */,
+			);
+			path = TranslationView;
+			sourceTree = "<group>";
+		};
+		38C6C39C2A8E17F600E298FD /* WeatherView */ = {
+			isa = PBXGroup;
+			children = (
+				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
+			);
+			path = WeatherView;
+			sourceTree = "<group>";
+		};
+		38C6C39D2A8E29C200E298FD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				38F512CE2A85C5CA00389F6D /* URL+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		38F4AB9C2A8E13C30040D798 /* VideoVIew */ = {
+			isa = PBXGroup;
+			children = (
+				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
+				38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */,
+			);
+			path = VideoVIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +283,7 @@
 				385A81572A80968F00A8D72C /* ViewController.swift in Sources */,
 				38F512D52A85F9F200389F6D /* AsyncViewController.swift in Sources */,
 				385A81532A80968F00A8D72C /* AppDelegate.swift in Sources */,
+				38C6C39A2A8E17C300E298FD /* Video.swift in Sources */,
 				38B800F22A84C14E0032C64C /* VideoTableViewCell.swift in Sources */,
 				385A81552A80968F00A8D72C /* SceneDelegate.swift in Sources */,
 				3878C8B72A8A02590068543B /* BoxOfficeData.swift in Sources */,

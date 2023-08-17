@@ -105,9 +105,6 @@ extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         callRequest(date: searchBar.text ?? "20230101")
     }
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//
-//    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

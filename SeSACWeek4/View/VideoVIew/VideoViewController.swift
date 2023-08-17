@@ -10,92 +10,44 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
-// MVC에서 M(Model)에 해당
-struct Video {
-    let author: String
-    let date: String
-    let playTime: Int
-    let thumbnail: String
-    let title: String
-    let imageURL: String
-    
-    var contents: String {
-        return "\(author) | \(playTime)회\n\(date)"
-    }
-}
-
 class VideoViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var videoTableView: UITableView!
     
-    var videoList = [Video]()
+    var videoList = [Video]() {
+        didSet {
+            videoTableView.reloadData()
+        }
+    }
     var page = 1
     var isEnd = false // 현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureView()
+    }
+    
+    func configureView() {
         videoTableView.delegate = self
         videoTableView.dataSource = self
         videoTableView.prefetchDataSource = self
         videoTableView.rowHeight = 140
-        
         searchBar.delegate = self
     }
     
     func callRequest(query: String, page: Int) {
-        KakaoAPIManager.shared.callRequest(type: .video, query: query) { json in
+        KakaoAPIManager.shared.callRequest(
+            type: .video,
+            query: query
+        ) { json in
             print("JSON: \(json)")
+            guard let documents = json.documents else { print("DOCUMENTS ERROR"); return }
+            guard let meta = json.meta else { print("META ERROR"); return }
+                    
+            self.videoList.append(contentsOf: documents)
         }
-        
-//        AF.request(
-//            url,
-//            method: .get,
-//            headers: headers
-//        ).validate(statusCode:
-//                    200...500
-//        ).responseJSON { response in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-////                print("JSON: \(json)")
-//
-//                let statusCode = response.response?.statusCode ?? 500 // 옵셔널 체이닝
-////                print("STATUS CODE: \(statusCode)\n") // 상태코드에 대한 것을 출력
-//
-//                if statusCode == 200 {
-//                    self.isEnd = json["meta"]["is_end"].boolValue
-//
-//                    for item in json["documents"].arrayValue {
-//                        let author = item["author"].stringValue
-//                        let dateString = item["datetime"].stringValue
-//                        let playTime = item["play_time"].intValue
-//                        let thumbnail = item["thumbnail"].stringValue
-//                        let title = item["title"].stringValue
-//                        let url = item["url"].stringValue
-//
-//                        let date = String(dateString[dateString.startIndex...dateString.index(dateString.startIndex, offsetBy: 9)])
-//
-//                        let data = Video(
-//                            author: author,
-//                            date: date,
-//                            playTime: playTime,
-//                            thumbnail: thumbnail,
-//                            title: title,
-//                            imageURL: url
-//                        )
-//
-//                        self.videoList.append(data)
-//                        self.videoTableView.reloadData()
-//                    }
-//                } else {
-//                    print("REQUEST ERROR: \(statusCode)")
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }
 
