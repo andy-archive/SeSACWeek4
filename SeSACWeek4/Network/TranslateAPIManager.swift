@@ -13,7 +13,7 @@ class TranslateAPIManager {
     
     static let shared = TranslateAPIManager()
     
-    private init() { }
+    private init() {}
     
     let headers: HTTPHeaders = [
         "X-Naver-Client-Id" : "\(APIKey.naverClientID)",
@@ -29,13 +29,9 @@ class TranslateAPIManager {
             "text": text,
         ]
         
-        AF.request(
-            url,
-            method: .post,
-            parameters: parameters,
-            headers: headers
-        ).validate(
-        ).responseJSON { response in
+        AF.request(url, method: .post, parameters: parameters, headers: headers)
+            .validate()
+            .responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)

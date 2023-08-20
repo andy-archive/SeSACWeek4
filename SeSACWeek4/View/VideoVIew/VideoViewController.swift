@@ -12,8 +12,20 @@ import Kingfisher
 
 class VideoViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var videoTableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
+    
+    @IBOutlet private weak var videoTableView: UITableView! {
+        didSet {
+            videoTableView.delegate = self
+            videoTableView.dataSource = self
+            videoTableView.prefetchDataSource = self
+            videoTableView.rowHeight = 140
+        }
+    }
     
     var videoList = [Video]() {
         didSet {
@@ -25,26 +37,12 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureView()
-    }
-    
-    func configureView() {
-        videoTableView.delegate = self
-        videoTableView.dataSource = self
-        videoTableView.prefetchDataSource = self
-        videoTableView.rowHeight = 140
-        searchBar.delegate = self
     }
     
     func callRequest(query: String, page: Int) {
-        KakaoAPIManager.shared.callRequest(
-            type: .video,
-            query: query
-        ) { json in
-            print("JSON: \(json)")
-            guard let documents = json.documents else { print("DOCUMENTS ERROR"); return }
-            guard let meta = json.meta else { print("META ERROR"); return }
+        KakaoAPIManager.shared.callRequest(type: .video, query: query) { json in
+            guard let documents = json.documents else { return }
+            guard let meta = json.meta else { return }
                     
             self.videoList.append(contentsOf: documents)
         }
@@ -75,7 +73,6 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier) as? VideoTableViewCell else { return UITableViewCell() }
         
         let row = videoList[indexPath.row]
-
         cell.titleLabel.text = row.title
         cell.contentLabel.text = row.contents
         

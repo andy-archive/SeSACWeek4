@@ -22,7 +22,8 @@ class KakaoAPIManager {
         let encodedText = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let url = type.requestURL + encodedText
         
-        AF.request(url, method: .get, headers: headers).validate(statusCode: 200...500)
+        AF.request(url, method: .get, headers: headers)
+            .validate(statusCode: 200...500)
             .responseDecodable(of: VideoList.self) { response in
                 switch response.result {
                 case .success(let value):
@@ -34,12 +35,13 @@ class KakaoAPIManager {
     }
     
     func callRequestJSON(type: Endpoint, query: String, completionHandler: @escaping (JSON) -> Void ) {
+        
         let encodedText = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let url = type.requestURL + encodedText
         
-        AF.request(url, method: .get, headers: headers
-        ).validate(statusCode: 200..<300
-        ).responseJSON { response in
+        AF.request(url, method: .get, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
