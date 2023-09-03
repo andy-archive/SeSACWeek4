@@ -10,7 +10,7 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
-class VideoViewController: UIViewController {
+final class VideoViewController: UIViewController {
     
     @IBOutlet private weak var searchBar: UISearchBar! {
         didSet {
@@ -32,22 +32,25 @@ class VideoViewController: UIViewController {
             videoTableView.reloadData()
         }
     }
-    var page = 1
-    var isEnd = false // 현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
+    private var page = 1
+    private var isEnd = false // 현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func callRequest(query: String, page: Int) {
+    private func callRequest(query: String, page: Int) {
         KakaoAPIManager.shared.callRequest(type: .video, query: query) { json in
+            guard let json = json else { return }
             guard let documents = json.documents else { return }
-            guard let meta = json.meta else { return }
+//            guard let meta = json.meta else { return }
                     
             self.videoList.append(contentsOf: documents)
         }
     }
 }
+
+//MARK: UISearchBarDelegate
 
 extension VideoViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

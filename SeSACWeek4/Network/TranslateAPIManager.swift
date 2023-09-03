@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class TranslateAPIManager {
+final class TranslateAPIManager {
     
     static let shared = TranslateAPIManager()
     
@@ -20,7 +20,8 @@ class TranslateAPIManager {
         "X-Naver-Client-Secret" : "\(APIKey.naverClientSecret)",
     ]
     
-    func callRequest(text: String, resultString: @escaping (String) -> Void ) {
+    private func callRequest(text: String, resultString: @escaping (String) -> Void ) {
+        
         let url = "https://openapi.naver.com/v1/papago/n2mt"
 
         let parameters: Parameters = [

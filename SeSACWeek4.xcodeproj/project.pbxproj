@@ -92,15 +92,14 @@
 		385A81512A80968F00A8D72C /* SeSACWeek4 */ = {
 			isa = PBXGroup;
 			children = (
-				38C6C39D2A8E29C200E298FD /* Extension */,
 				385A81722A809BAD00A8D72C /* .gitignore */,
-				385A81602A80969000A8D72C /* Info.plist */,
-				385A815B2A80969000A8D72C /* Assets.xcassets */,
 				385A81702A8096E000A8D72C /* Application */,
+				385A815B2A80969000A8D72C /* Assets.xcassets */,
+				38C6C39D2A8E29C200E298FD /* Extension */,
+				385A81602A80969000A8D72C /* Info.plist */,
 				3878C8B82A8A53EE0068543B /* Model */,
 				38C6C3982A8E177A00E298FD /* Network */,
-				385A81712A8096E600A8D72C /* Storyboard */,
-				385A816F2A8096DA00A8D72C /* View */,
+				38C9521B2AA40B27002A50BA /* Scene */,
 			);
 			path = SeSACWeek4;
 			sourceTree = "<group>";
@@ -108,11 +107,7 @@
 		385A816F2A8096DA00A8D72C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				38F512D42A85F9F200389F6D /* AsyncViewController.swift */,
-				385A81562A80968F00A8D72C /* ViewController.swift */,
-				38C6C39B2A8E17ED00E298FD /* TranslationView */,
-				38F4AB9C2A8E13C30040D798 /* VideoVIew */,
-				38C6C39C2A8E17F600E298FD /* WeatherView */,
+				38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,22 +152,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		38C6C39B2A8E17ED00E298FD /* TranslationView */ = {
-			isa = PBXGroup;
-			children = (
-				38EAF3052A84768700A96C51 /* TranslationViewController.swift */,
-			);
-			path = TranslationView;
-			sourceTree = "<group>";
-		};
-		38C6C39C2A8E17F600E298FD /* WeatherView */ = {
-			isa = PBXGroup;
-			children = (
-				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
-			);
-			path = WeatherView;
-			sourceTree = "<group>";
-		};
 		38C6C39D2A8E29C200E298FD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,13 +160,26 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		38F4AB9C2A8E13C30040D798 /* VideoVIew */ = {
+		38C9521B2AA40B27002A50BA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
-				38B800F12A84C14E0032C64C /* VideoTableViewCell.swift */,
+				385A81712A8096E600A8D72C /* Storyboard */,
+				385A816F2A8096DA00A8D72C /* View */,
+				38C9521C2AA40B43002A50BA /* ViewController */,
 			);
-			path = VideoVIew;
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		38C9521C2AA40B43002A50BA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38F512D42A85F9F200389F6D /* AsyncViewController.swift */,
+				38EAF3052A84768700A96C51 /* TranslationViewController.swift */,
+				385A818C2A81E79400A8D72C /* VideoViewController.swift */,
+				385A81562A80968F00A8D72C /* ViewController.swift */,
+				385A818A2A81C4C900A8D72C /* WeatherViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

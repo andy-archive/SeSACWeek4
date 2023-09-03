@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VideoTableViewCell: UITableViewCell {
+final class VideoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,7 +19,7 @@ class VideoTableViewCell: UITableViewCell {
         configureCell()
     }
     
-    func configureCell() {
+    private func configureCell() {
         titleLabel.font = .boldSystemFont(ofSize: 15)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .natural
